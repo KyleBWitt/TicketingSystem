@@ -3,37 +3,22 @@ import '../../../assets/IncidentForm.css'; // Import the CSS file
 
 const IncidentForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
-    // ticketId: '',
-    // description: '',
-    // createdDate: '',
-    // createdBy: '',
-    // priority: 'Low',
-    // assignedTo: '',
-    // status: 'open',  // You might want to set a default status
-    // comments: [''],
-    // attachments: [''],
-    // isUrgent: false,
-    // incidentDate: '',
-    // affectedSystems: [''],
-    // severity: 'Low',
-    // rootCause: '',
-    // resolution: '',
-    ticketId: crypto.randomUUID(), 
-    title: 'Weow',
-    description: 'Gool',
-    createdDate: new Date().toISOString().slice(0, 16), // Format the date for datetime-local input (yyyy-MM-ddThh:mm)
-    createdBy: 'Me',
+    ticketId: crypto.randomUUID(),
+    title: '',
+    description: '',
+    createdDate: new Date().toISOString().slice(0, 16),
+    createdBy: '',
     priority: 1,
-    assignedTo: 'You',
-    status: 'open',
-    comments: ['None'],
+    assignedTo: '',
+    status: '',
+    comments: [''],
     attachments: [''],
     isUrgent: false,
-    incidentDate: new Date().toISOString().slice(0, 16), // Format the date for datetime-local input (yyyy-MM-ddThh:mm)
-    affectedSystems: ['All'],
+    incidentDate: new Date().toISOString().slice(0, 16),
+    affectedSystems: [''],
     severity: 1,
-    rootCause: 'You',
-    resolution: 'None'
+    rootCause: '',
+    resolution: '',
   });
 
   const handleChange = (e) => {
@@ -58,12 +43,23 @@ const IncidentForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
     onSubmit(formData); // Pass the data to the parent component for handling submission
   };
 
   return (
     <form onSubmit={handleSubmit} className="incident-form">
       <h2>Create Incident</h2>
+      <div className="form-group">
+        <label>Title:</label>
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          placeholder="Title"
+        />
+      </div>
 
       <div className="form-group">
         <label>Description:</label>
@@ -83,10 +79,10 @@ const IncidentForm = ({ onSubmit }) => {
             value={formData.priority}
             onChange={handleChange}
           >
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-            <option value="Very High">Very High</option>
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+            <option value="4">Very High</option>
           </select>
         </div>
 
@@ -97,10 +93,10 @@ const IncidentForm = ({ onSubmit }) => {
             value={formData.severity}
             onChange={handleChange}
           >
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-            <option value="Critical">Critical</option>
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+            <option value="4">Critical</option>
           </select>
         </div>
       </div>

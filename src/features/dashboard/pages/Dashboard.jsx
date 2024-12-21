@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for routing
 import { Bar, Line } from 'react-chartjs-2'; // Your chart imports
 import { Chart as ChartJS, 
     CategoryScale, 
@@ -74,15 +73,6 @@ const Dashboard = () => {
                     <h3>Website Traffic (Line Chart)</h3>
                     <Line data={lineData} options={{ responsive: true }} />
                 </div>
-            </div>
-
-            {/* Link to Create Incident Page */}
-            <div style={{ marginTop: '20px' }}>
-                <Link 
-                    to="/create-incident" 
-                    style={{ color: '#FF5722', fontSize: '18px', textDecoration: 'underline' }}>
-                    Create New Incident
-                </Link>
             </div>
         </div>
     );
