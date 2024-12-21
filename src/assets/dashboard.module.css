@@ -1,0 +1,16 @@
+.dashboard {
+    background-color: #1f1f1f;
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.chartsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.chart {
+    width: 48%;
+}
